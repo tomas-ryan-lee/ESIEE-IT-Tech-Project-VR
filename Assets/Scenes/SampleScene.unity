@@ -564,10 +564,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpawnPosition: {fileID: 955112170}
-  m_CoolDownDuration: 5
+  m_CoolDownDuration: 1
   m_ProjectilePrefab: {fileID: 8749795525700000251, guid: d457bd5a720e044798cde0a20f6f0625,
     type: 3}
-  m_ProjectileInitSpeed: 5
+  m_ProjectileInitSpeed: 50
   m_ProjectileLifeDuration: 10
 --- !u!1 &963194225
 GameObject:
