@@ -34,7 +34,7 @@ public class Shoot : MonoBehaviour
         bool isFiring = Input.GetButton("Fire1");
         if (isFiring && Time.time> m_NextShootTime)
         {
-            Destroy(ShootProjectile(), m_ProjectileLifeDuration); // la destruction a lieu en fin de frame ... pas imm�diatement !
+            Destroy(ShootProjectile(), m_ProjectileLifeDuration); // la destruction a lieu en fin de frame ... pas immédiatement !
             m_NextShootTime = Time.time + m_CoolDownDuration;
         }
     }
