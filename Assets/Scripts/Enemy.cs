@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
 
     [SerializeField] GameObject m_Bullet;
-    [SerializeField] float m_LifePoints = 3;
+    [SerializeField] float m_LifePoints = 4;
 
     private void OnCollisionEnter(Collision m_Bullet) {
         m_LifePoints--;

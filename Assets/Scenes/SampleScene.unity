@@ -567,7 +567,7 @@ MonoBehaviour:
   m_CoolDownDuration: 0.25
   m_ProjectilePrefab: {fileID: 8749795525700000251, guid: d457bd5a720e044798cde0a20f6f0625,
     type: 3}
-  m_ProjectileInitSpeed: 20
+  m_ProjectileInitSpeed: 30
   m_ProjectileLifeDuration: 1
 --- !u!1 &963194225
 GameObject:
@@ -859,6 +859,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164274444455048620, guid: d2656b6d6a1c8419282658817035d58b,
+        type: 3}
+      propertyPath: m_LifePoints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6656560380535780893, guid: d2656b6d6a1c8419282658817035d58b,
         type: 3}
@@ -1266,4 +1271,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TranslationSpeed: 10
-  m_RotationSpeed: 50
+  m_RotationSpeed: 100
