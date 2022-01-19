@@ -5,9 +5,7 @@ using UnityEngine;
 public class PlayerMovements : MonoBehaviour
 {
     [Header("Movement Setup")]
-    [Tooltip("Translation speed in m/s")]
     [SerializeField] float m_TranslationSpeed;
-    [Tooltip("Rotation speed in m/s")]
     [SerializeField] float m_RotationSpeed;
     Rigidbody m_Rigidbody;
 
