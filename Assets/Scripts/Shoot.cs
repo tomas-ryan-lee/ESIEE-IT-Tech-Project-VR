@@ -31,7 +31,7 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool isFiring = Input.GetButton("Fire1");
+        bool isFiring = Input.GetButton("Fire");
         if (isFiring && Time.time> m_NextShootTime)
         {
             Destroy(ShootProjectile(), m_ProjectileLifeDuration); // la destruction a lieu en fin de frame ... pas immédiatement !
