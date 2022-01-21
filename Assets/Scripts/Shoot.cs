@@ -20,6 +20,17 @@ public class Shoot : MonoBehaviour
         m_NextShootTime = Time.time;
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        // Fonction Tirer
+        ShootBullet();
+    }
+
+
+
+    /** FONCTIONS DE TIR
+    ---------------------------------------------**/
     GameObject ShootProjectile()
 	{
         GameObject newBallGO = Instantiate(m_ProjectilePrefab);
@@ -28,9 +39,7 @@ public class Shoot : MonoBehaviour
         return newBallGO;
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
+    void ShootBullet(){
         bool isFiring = Input.GetButton("Fire");
         if (isFiring && Time.time> m_NextShootTime)
         {
@@ -38,4 +47,10 @@ public class Shoot : MonoBehaviour
             m_NextShootTime = Time.time + m_CoolDownDuration;
         }
     }
+
+
+
+    /** FONCTIONS DE BOUCLIER
+    ---------------------------------------------**/
+    
 }
