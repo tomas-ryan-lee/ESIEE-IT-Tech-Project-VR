@@ -31,6 +31,7 @@ public class PlayerMovements : MonoBehaviour
     }
 
     void Jump(){
+        // Détection du joueur au sol
         if(!grounded && transform.position.z < 2) {
             grounded = true;
         }
