@@ -1418,3 +1418,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TranslationSpeed: 10
   m_RotationSpeed: 100
+  m_jumpForce: 7
+  m_jump: {x: 0, y: 0, z: 0}
