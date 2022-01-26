@@ -5,13 +5,5 @@ namespace STUDENT_NAME{
 
     public class GameManager : MonoBehaviour
     {
-        [Header("Score Setup")]
-        [SerializeField] public GameObject Score;
-        public int ScoreUI;
-
-        void Update()
-        {
-            Score.GetComponent<TMPro.TextMeshProUGUI>().text = "Score : " + ScoreUI;
-        }
     }
 }

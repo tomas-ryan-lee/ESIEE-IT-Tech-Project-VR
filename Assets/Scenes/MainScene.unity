@@ -152,7 +152,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1425641060}
-  - {fileID: 930755898}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -652,49 +651,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &930755897
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 930755898}
-  - component: {fileID: 930755899}
-  m_Layer: 0
-  m_Name: EventManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &930755898
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 930755897}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 271007113}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &930755899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 930755897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e1da9105ed4a41f099dd4a401cedcef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &955112169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1311,8 +1267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa4352a9f6f34539837789b4f87006a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: {fileID: 1112678998}
-  ScoreUI: 0
 --- !u!4 &1425641060
 Transform:
   m_ObjectHideFlags: 0
@@ -1396,8 +1350,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5164274444455048620, guid: d2656b6d6a1c8419282658817035d58b,
         type: 3}
+      propertyPath: Score
+      value: 
+      objectReference: {fileID: 1112678998}
+    - target: {fileID: 5164274444455048620, guid: d2656b6d6a1c8419282658817035d58b,
+        type: 3}
+      propertyPath: ScoreUI
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164274444455048620, guid: d2656b6d6a1c8419282658817035d58b,
+        type: 3}
+      propertyPath: ScoreAdd
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164274444455048620, guid: d2656b6d6a1c8419282658817035d58b,
+        type: 3}
       propertyPath: m_LifePoints
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6656560380535780893, guid: d2656b6d6a1c8419282658817035d58b,
         type: 3}
