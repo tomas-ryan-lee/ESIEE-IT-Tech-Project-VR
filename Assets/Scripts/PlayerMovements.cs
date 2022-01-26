@@ -36,7 +36,7 @@ public class PlayerMovements : MonoBehaviour
             grounded = true;
         }
         // Commande Sauter
-        if (Input.GetButton("Jump"))
+        if (Input.GetButtonUp("Jump"))
         {
             rigidbodyInstance.velocity = new Vector3(0f, m_jumpForce, 0f);
             grounded = false;
