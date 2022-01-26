@@ -1,22 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+namespace STUDENT_NAME{
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
-    [Header("Score Setup")]
-    [SerializeField] public GameObject Score;
-    public int ScoreUI;
-
-    // Start is called before the first frame update
-    void Start()
+    public class GameManager : MonoBehaviour
     {
-        
-    }
+        [Header("Score Setup")]
+        [SerializeField] public GameObject Score;
+        public int ScoreUI;
 
-    // Update is called once per frame
-    void Update()
-    {
-        Score.GetComponent<TMPro.TextMeshProUGUI>().text = "Score : " + ScoreUI;
+        void Update()
+        {
+            Score.GetComponent<TMPro.TextMeshProUGUI>().text = "Score : " + ScoreUI;
+        }
     }
 }
