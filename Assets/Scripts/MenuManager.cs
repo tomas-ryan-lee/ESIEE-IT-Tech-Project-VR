@@ -51,7 +51,7 @@ public class MenuManager : MonoBehaviour, IEventHandler
         DisplayPanel(m_MenuPanel);
     }
 
-    void GamePlay(GamePlayEvent e)
+    public void GamePlay(GamePlayEvent e)
     {
         DisplayPanel(null);
     }
