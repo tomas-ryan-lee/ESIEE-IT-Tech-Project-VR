@@ -37,13 +37,6 @@ public class Enemy : MonoBehaviour
         // Score
         Score.GetComponent<TMPro.TextMeshProUGUI>().text = "Score : " + ScoreUI;
         // Mouvement de l'ennemi
-        if (movingLeft == true) {
-            transform.Translate(Vector3.left * SpeedWalk * Time.deltaTime, Space.World);
-            if (transform.position.x <= -6) movingLeft = false;
-        } else {
-            transform.Translate(Vector3.right * SpeedWalk * Time.deltaTime, Space.World);
-            if (transform.position.x >= 6) movingLeft = true;
-        }
     }
 
 
