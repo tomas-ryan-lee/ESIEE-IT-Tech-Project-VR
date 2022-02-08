@@ -1547,6 +1547,7 @@ MonoBehaviour:
     type: 3}
   m_ProjectileInitSpeed: 30
   m_ProjectileLifeDuration: 1
+  m_MenuPanel: {fileID: 644759314}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2902,7 +2903,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1624556815}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 116078193}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: QuitButtonHasBeenClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1624556815
 MonoBehaviour:
   m_ObjectHideFlags: 0
