@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SDD.Events;
 
 public class Shoot : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Shoot : MonoBehaviour
     [SerializeField] GameObject m_ProjectilePrefab;
     [SerializeField] float m_ProjectileInitSpeed;
     [SerializeField] float m_ProjectileLifeDuration;
+    [SerializeField] GameObject m_MenuPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +26,8 @@ public class Shoot : MonoBehaviour
     void Update()
     {
         // Fonction Tirer
-        ShootBullet();
+        if(!m_MenuPanel.activeSelf)
+            ShootBullet();
     }
 
 

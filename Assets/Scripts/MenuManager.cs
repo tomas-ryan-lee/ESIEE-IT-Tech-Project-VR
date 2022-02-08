@@ -78,6 +78,12 @@ public class MenuManager : MonoBehaviour, IEventHandler
         ClosePanel(m_MenuPanel);
     }
 
+    public void QuitButtonHasBeenClicked()
+    {
+        EventManager.Instance.Raise(new QuitButtonClickedEvent());
+		Application.Quit();
+    }
+
     public void MenuButtonHasBeenClicked()
     {
         EventManager.Instance.Raise(new MainMenuButtonClickedEvent());

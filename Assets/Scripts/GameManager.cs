@@ -118,6 +118,11 @@ public class GameManager : MonoBehaviour
 		InitLevel();
 	}
 
+	public void QuitButtonClicked(QuitButtonClickedEvent e)
+	{
+		Application.Quit();
+	}
+
 	void MainMenuButtonClicked(MainMenuButtonClickedEvent e)
 	{
 		SetAndBroadcastState(GameState.menu);
