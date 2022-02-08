@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour, IEventHandler
     [SerializeField] GameObject m_PausePanel;
     [SerializeField] GameObject m_VictoryPanel;
     [SerializeField] GameObject m_GameOverPanel;
+
     List<GameObject> m_AllPanels = new List<GameObject>();
 
     public void SubscribeEvents()
@@ -38,12 +39,17 @@ public class MenuManager : MonoBehaviour, IEventHandler
 
     private void Awake() 
     {
-        m_AllPanels.AddRange(new GameObject[] { m_MenuPanel, m_VictoryPanel, m_GameOverPanel, });
+        m_AllPanels.AddRange(new GameObject[] { m_MenuPanel, m_VictoryPanel, m_GameOverPanel, m_PausePanel });
     }
 
     void DisplayPanel(GameObject panelGO)
     {
         foreach (var item in m_AllPanels) item.SetActive(item == panelGO);
+    }
+
+    void ClosePanel(GameObject panel)
+    {
+        panel.SetActive(false);
     }
 
     void GameMenu(GameMenuEvent e)
@@ -69,10 +75,12 @@ public class MenuManager : MonoBehaviour, IEventHandler
     public void PlayButtonHasBeenClicked()
     {
         EventManager.Instance.Raise(new PlayButtonClickedEvent());
+        ClosePanel(m_MenuPanel);
     }
 
     public void MenuButtonHasBeenClicked()
     {
         EventManager.Instance.Raise(new MainMenuButtonClickedEvent());
+        DisplayPanel(m_PausePanel);
     }
 }
