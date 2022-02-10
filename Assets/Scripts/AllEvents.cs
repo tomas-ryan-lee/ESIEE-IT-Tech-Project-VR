@@ -55,4 +55,9 @@ public class ScoreItemEvent : SDD.Events.Event
 {
 	public float eScore;
 }
+
+public class GameScorePlayerChangedEvent : SDD.Events.Event
+{
+	public float eScore { get; set; }
+}
 #endregion
