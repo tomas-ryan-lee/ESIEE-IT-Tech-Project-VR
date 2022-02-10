@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] float m_LifePoints = 4;
 
     [Header("Score Setup")]
-    [SerializeField] public GameObject Score;
     [SerializeField] public int ScoreAdd;
     [SerializeField] public int SpeedWalk;
     int ScoreUI;
@@ -34,8 +33,6 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        // Score
-        Score.GetComponent<TMPro.TextMeshProUGUI>().text = "Score : " + ScoreUI;
         // Mouvement de l'ennemi
     }
 
@@ -44,7 +41,6 @@ public class Enemy : MonoBehaviour
     /** FONCTIONS DE COLLISION ET DE DESTRUCTION
     ---------------------------------------------**/
     private void OnCollisionExit(Collision m_Bullet) {
-        ScoreUI = ScoreUI + ScoreAdd;
         m_LifePoints--;
         DestroyEnemy();
     }
