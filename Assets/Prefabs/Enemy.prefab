@@ -135,6 +135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2740899037081882172}
+  - component: {fileID: 8102444274048060941}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -157,6 +158,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8102444274048060941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6656560380535780893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51173cc2f4e1f41589eaaedbb320b44d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Bullet: {fileID: 8749795525700000251, guid: d457bd5a720e044798cde0a20f6f0625,
+    type: 3}
+  m_LifePoints: 3
+  SpeedWalk: 4
+  Player: {fileID: 0}
+  MoveSpeed: 0
+  MinDist: 0
+  MaxDist: 0
 --- !u!1 &6657171300334122544
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +191,6 @@ GameObject:
   - component: {fileID: 6237229961528151554}
   - component: {fileID: 3012854129169674503}
   - component: {fileID: 5003474388477886742}
-  - component: {fileID: 5164274444455048620}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -272,28 +292,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 94
   m_CollisionDetection: 0
---- !u!114 &5164274444455048620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6657171300334122544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51173cc2f4e1f41589eaaedbb320b44d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SpawnPosition: {fileID: 7323579735261066490}
-  m_CoolDownDuration: 10
-  m_ProjectilePrefab: {fileID: 8749795525700000251, guid: c45dde1cc4b884ef8874a92bdab4dc39,
-    type: 3}
-  m_ProjectileInitSpeed: 30
-  m_ProjectileLifeDuration: 1
-  m_Bullet: {fileID: 8749795525700000251, guid: d457bd5a720e044798cde0a20f6f0625,
-    type: 3}
-  m_LifePoints: 3
-  Score: {fileID: 0}
-  ScoreAdd: 0
-  SpeedWalk: 4
-  movingLeft: 0

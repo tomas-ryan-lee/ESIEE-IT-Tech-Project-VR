@@ -4,39 +4,32 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Shoot Setup")]
-    [SerializeField] Transform m_SpawnPosition;
-    [SerializeField] float m_CoolDownDuration;
-    float m_NextShootTime;
-
-    [Header("Projectile Setup")]
-    [SerializeField] GameObject m_ProjectilePrefab;
-    [SerializeField] float m_ProjectileInitSpeed;
-    [SerializeField] float m_ProjectileLifeDuration;
-
     [Header("Life Setup")]
     [SerializeField] GameObject m_Bullet;
     [SerializeField] float m_LifePoints = 4;
 
     [Header("Score Setup")]
-    [SerializeField] public int ScoreAdd;
     [SerializeField] public int SpeedWalk;
-    int ScoreUI;
 
     [Header("Movements Setup")]
-    [SerializeField] private bool movingLeft;
+    [SerializeField] Transform Player;
+    [SerializeField] float MoveSpeed;
+    [SerializeField] float MinDist;
+    [SerializeField] float MaxDist;
 
-    private void Start() {
-        ScoreUI = 0;
-        movingLeft = true;
-    }
-
-    void Update()
-    {
-        // Mouvement de l'ennemi
+    private void Update() {
+        FollowPlayer();
     }
 
 
+    /** FONCTIONS DE MOUVEMENTS
+    ---------------------------------------------**/
+    private void FollowPlayer(){
+        transform.LookAt(Player);
+        // L'ennemi est loin du joueur
+        if (Vector3.Distance(transform.position,Player.position) >= MinDist)
+            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+    }
 
     /** FONCTIONS DE COLLISION ET DE DESTRUCTION
     ---------------------------------------------**/
@@ -49,22 +42,5 @@ public class Enemy : MonoBehaviour
         if(m_LifePoints < 1){
             Destroy(gameObject);
         }
-    }
-
-
-
-    /** FONCTIONS DE TIR
-    ---------------------------------------------**/
-    GameObject ShootProjectile()
-	{
-        GameObject newBallGO = Instantiate(m_ProjectilePrefab);
-        newBallGO.transform.position = m_SpawnPosition.position;
-        newBallGO.GetComponent<Rigidbody>().velocity = m_SpawnPosition.transform.forward * m_ProjectileInitSpeed;
-        return newBallGO;
-	}
-
-    void ShootBullet(){
-        Destroy(ShootProjectile(), m_ProjectileLifeDuration); // la destruction a lieu en fin de frame ... pas immédiatement !
-        m_NextShootTime = Time.time + m_CoolDownDuration;
     }
 }
