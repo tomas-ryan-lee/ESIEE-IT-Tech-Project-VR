@@ -12,24 +12,39 @@ public class Enemy : MonoBehaviour
     [SerializeField] public int SpeedWalk;
 
     [Header("Movements Setup")]
-    [SerializeField] Transform Player;
+    [SerializeField] GameObject Player;
+    [SerializeField] Transform PlayerTransform;
     [SerializeField] float MoveSpeed;
     [SerializeField] float MinDist;
     [SerializeField] float MaxDist;
+    [SerializeField] public bool followActivated = false;
+
+    private void Start() {
+        followActivated = false;
+    }
 
     private void Update() {
-        FollowPlayer();
+        if (followActivated == true)
+        {
+            FollowPlayer();
+        }
     }
 
 
     /** FONCTIONS DE MOUVEMENTS
     ---------------------------------------------**/
     private void FollowPlayer(){
-        transform.LookAt(Player);
+        transform.LookAt(PlayerTransform);
         // L'ennemi est loin du joueur
-        if (Vector3.Distance(transform.position,Player.position) >= MinDist)
+        if (Vector3.Distance(transform.position,PlayerTransform.position) >= MinDist)
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
     }
+
+    private void OnTriggerEnter(Collider Player) {
+        if(Player.tag == "Player") {
+            followActivated = true;
+        }
+    } 
 
     /** FONCTIONS DE COLLISION ET DE DESTRUCTION
     ---------------------------------------------**/
