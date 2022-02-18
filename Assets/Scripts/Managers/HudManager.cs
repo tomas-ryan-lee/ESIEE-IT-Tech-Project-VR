@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using SDD.Events;
 
@@ -9,33 +10,37 @@ public class HudManager : MonoBehaviour
     [SerializeField] public TextMeshProUGUI m_ScoreText;
     float m_Score;
 
-    #region Events subscription
-    public void SubscribeEvents()
+    public GameObject[] ennemiesLevel;
+    public int ennemiesLevelLength;
+
+    void SubscribeEvents()
     {
-        EventManager.Instance.AddListener<GameScorePlayerChangedEvent>(GameScorePlayerChanged);
+        EventManager.Instance.AddListener<GameStatisticsChangedEvent>(GameStatisticsChanged);
     }
-    public void UnsubscribeEvents()
-    {
-        EventManager.Instance.RemoveListener<GameScorePlayerChangedEvent>(GameScorePlayerChanged);
-    }
+
+	public void UnsubscribeEvents()
+	{
+		EventManager.Instance.RemoveListener<GameStatisticsChangedEvent>(GameStatisticsChanged);
+	}
+
 	private void OnEnable()
 	{
 		SubscribeEvents();
 	}
+
 	private void OnDisable()
 	{
 		UnsubscribeEvents();
 	}
-    #endregion
 
-    void Start()
-    {
-        m_ScoreText.text = "Score : " + m_Score.ToString();
+    void InitScoreUI(int score){
+        ennemiesLevel = GameObject.FindGameObjectsWithTag("Enemy");
+        ennemiesLevelLength = ennemiesLevel.Length;
+        m_ScoreText.text = "Ennemis vaincus : " + score + "/" + ennemiesLevelLength.ToString();
     }
 
-    private void GameScorePlayerChanged(GameScorePlayerChangedEvent e)
+    void GameStatisticsChanged(GameStatisticsChangedEvent e)
     {
-        m_Score = m_Score + e.eScore;
-        m_ScoreText.text = "Score : " + m_Score.ToString();
+        InitScoreUI(e.eEnnemiesDefeated);
     }
 }

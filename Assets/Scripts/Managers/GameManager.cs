@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
     {
         m_Score = score;
 		m_Countdown = time;
-		EventManager.Instance.Raise(new GameStatisticsChangedEvent() { eScore = m_Score, eCountdown = m_Countdown });
+		EventManager.Instance.Raise(new GameStatisticsChangedEvent() { eEnnemiesDefeated = m_Score, eCountdown = m_Countdown });
     }
 
     void Menu()

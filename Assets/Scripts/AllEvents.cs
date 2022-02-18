@@ -26,7 +26,7 @@ public class GameVictoryEvent : SDD.Events.Event
 public class GameStatisticsChangedEvent : SDD.Events.Event
 {
 	public float eBestScore { get; set; }
-	public float eScore { get; set; }
+	public int eEnnemiesDefeated { get; set; }
 	public int eNLives { get; set; }
 	public float eCountdown { get; set; }
 }
@@ -53,11 +53,11 @@ public class QuitButtonClickedEvent : SDD.Events.Event
 #region Score Event
 public class ScoreItemEvent : SDD.Events.Event
 {
-	public float eScore;
+	public float eEnnemiesDefeated;
 }
 
 public class GameScorePlayerChangedEvent : SDD.Events.Event
 {
-	public float eScore { get; set; }
+	public float eEnnemiesDefeated { get; set; }
 }
 #endregion

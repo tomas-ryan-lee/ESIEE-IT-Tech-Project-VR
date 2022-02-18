@@ -12,12 +12,18 @@ public class PlayerMovements : MonoBehaviour
     Rigidbody rigidbodyInstance;
     public bool grounded = true;
 
+    [Header("Fight Setup")]
+    [SerializeField] Transform m_Shield;
+    public bool m_Protection = false;
+
+
+
     void Start()
     {
         rigidbodyInstance = GetComponent<Rigidbody>();
     }
  
-     void FixedUpdate()
+    void FixedUpdate()
     {
         float hInput, vInput;
         hInput = Input.GetAxis("Horizontal");
@@ -28,6 +34,8 @@ public class PlayerMovements : MonoBehaviour
         transform.Translate(Vector3.forward * m_TranslationSpeed * Time.fixedDeltaTime * vInput);
         // Fonction Saut
         Jump();
+        // Fonction Protection
+        ProtectAgainEnemyAttacks();
     }
 
     void Jump(){
@@ -41,5 +49,17 @@ public class PlayerMovements : MonoBehaviour
             rigidbodyInstance.velocity = new Vector3(0f, m_jumpForce, 0f);
             grounded = false;
         }
+    }
+
+    void ProtectAgainEnemyAttacks(){
+        bool isHiding = Input.GetButton("Hide");
+        if(isHiding)
+        {
+            m_Protection = true;
+        }    
+        else
+        {
+            m_Protection = false;
+        } 
     }
 }

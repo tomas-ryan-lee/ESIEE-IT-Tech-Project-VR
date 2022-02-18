@@ -2627,6 +2627,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1824011101}
+  - component: {fileID: 1824011102}
   m_Layer: 0
   m_Name: ShieldPoint
   m_TagString: Untagged
@@ -2649,6 +2650,21 @@ Transform:
   m_Father: {fileID: 2094430308}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1824011102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824011100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d79e7fe54174825a2a03d6f5147fb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Rotation: 1000
+  m_RotationSpeed: 10
+  m_RotatePoint: {fileID: 1300613238}
 --- !u!1 &1928389198
 GameObject:
   m_ObjectHideFlags: 0
@@ -3494,3 +3510,5 @@ MonoBehaviour:
   m_jumpForce: 8
   m_jump: {x: 0, y: 0, z: 0}
   grounded: 1
+  m_Shield: {fileID: 1824011101}
+  m_Protection: 0
