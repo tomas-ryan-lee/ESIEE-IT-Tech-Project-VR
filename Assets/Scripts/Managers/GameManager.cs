@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 
 	void Start()
     {
-		SetAndBroadcastScoreAndTime(0, m_GameDuration);
+		SetAndBroadcastScoreAndTime(0);
         Menu();
     }
 
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     {
         if(IsPlaying)
 		{
-			SetAndBroadcastScoreAndTime(m_Score, Mathf.Max(0, m_Countdown - Time.deltaTime));
+			SetAndBroadcastScoreAndTime(m_Score);
 			if (m_Countdown == 0)
 			    GameOver();
 		}
@@ -89,11 +89,10 @@ public class GameManager : MonoBehaviour
 		}
     }
 
-    void SetAndBroadcastScoreAndTime(int score, float time)
+    void SetAndBroadcastScoreAndTime(int score)
     {
         m_Score = score;
-		m_Countdown = time;
-		EventManager.Instance.Raise(new GameStatisticsChangedEvent() { eEnnemiesDefeated = m_Score, eCountdown = m_Countdown });
+		EventManager.Instance.Raise(new GameStatisticsChangedEvent() { eEnnemiesDefeated = m_Score });
     }
 
     void Menu()

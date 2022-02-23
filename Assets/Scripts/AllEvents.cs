@@ -28,7 +28,6 @@ public class GameStatisticsChangedEvent : SDD.Events.Event
 	public float eBestScore { get; set; }
 	public int eEnnemiesDefeated { get; set; }
 	public int eNLives { get; set; }
-	public float eCountdown { get; set; }
 }
 #endregion
 

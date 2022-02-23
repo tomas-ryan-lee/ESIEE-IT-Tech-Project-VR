@@ -48,14 +48,16 @@ public class Enemy : MonoBehaviour
 
     /** FONCTIONS DE COLLISION ET DE DESTRUCTION
     ---------------------------------------------**/
-    private void OnCollisionExit(Collision m_Bullet) {
-        m_LifePoints--;
+    private void OnCollisionExit(Collision m_Bullet) 
+    {
         DestroyEnemy();
     }
 
     void DestroyEnemy(){
+        m_LifePoints--;
         if(m_LifePoints < 1){
             Destroy(gameObject);
         }
+        Debug.Log("Attacked");
     }
 }
