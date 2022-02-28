@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SDD.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -12,52 +13,27 @@ public class Enemy : MonoBehaviour
     [SerializeField] public int SpeedWalk;
 
     [Header("Movements Setup")]
-    [SerializeField] GameObject Player;
-    [SerializeField] Transform PlayerTransform;
     [SerializeField] float MoveSpeed;
     [SerializeField] float MinDist;
     [SerializeField] float MaxDist;
-    [SerializeField] public bool followActivated = false;
+    
 
-    private void Start() {
-        followActivated = false;
-    }
-
-    private void Update() {
-        if (followActivated == true)
-        {
-            FollowPlayer();
-        }
-    }
-
-
-    /** FONCTIONS DE MOUVEMENTS
+	/** FONCTIONS DE COLLISION ET DE DESTRUCTION
     ---------------------------------------------**/
-    private void FollowPlayer(){
-        transform.LookAt(PlayerTransform);
-        // L'ennemi est loin du joueur
-        if (Vector3.Distance(transform.position,PlayerTransform.position) >= MinDist)
-            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-    }
-
-    private void OnTriggerEnter(Collider Player) {
-        if(Player.tag == "Player") {
-            followActivated = true;
-        }
-    } 
-
-    /** FONCTIONS DE COLLISION ET DE DESTRUCTION
-    ---------------------------------------------**/
-    private void OnCollisionExit(Collision m_Bullet) 
+    private void OnCollisionEnter(Collision m_Bullet) 
     {
         DestroyEnemy();
     }
 
-    void DestroyEnemy(){
+    private void DestroyEnemy()
+    {
         m_LifePoints--;
         if(m_LifePoints < 1){
             Destroy(gameObject);
         }
-        Debug.Log("Attacked");
+    }
+
+    private void OnDestroy() {
+        HudManager.instance.AddPointsToScore();
     }
 }

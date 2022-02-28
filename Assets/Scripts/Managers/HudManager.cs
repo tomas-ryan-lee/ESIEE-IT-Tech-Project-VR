@@ -8,39 +8,32 @@ using SDD.Events;
 public class HudManager : MonoBehaviour
 {
     [SerializeField] public TextMeshProUGUI m_ScoreText;
-    float m_Score;
-
+    public static HudManager instance;
+    public int m_Score;
     public GameObject[] ennemiesLevel;
     public int ennemiesLevelLength;
 
-    void SubscribeEvents()
-    {
-        EventManager.Instance.AddListener<GameStatisticsChangedEvent>(GameStatisticsChanged);
+    private void Awake() {
+        instance = this;
     }
 
-	public void UnsubscribeEvents()
-	{
-		EventManager.Instance.RemoveListener<GameStatisticsChangedEvent>(GameStatisticsChanged);
-	}
+    private void Start() {
+        InitEnnemiesLength();
+        InitScoreUI(0);
+    }
 
-	private void OnEnable()
-	{
-		SubscribeEvents();
-	}
-
-	private void OnDisable()
-	{
-		UnsubscribeEvents();
-	}
-
-    void InitScoreUI(int score){
+    void InitEnnemiesLength(){
         ennemiesLevel = GameObject.FindGameObjectsWithTag("Enemy");
         ennemiesLevelLength = ennemiesLevel.Length;
+    }
+
+    void InitScoreUI(int score){
         m_ScoreText.text = "Ennemis vaincus : " + score + "/" + ennemiesLevelLength.ToString();
     }
 
-    void GameStatisticsChanged(GameStatisticsChangedEvent e)
+    public void AddPointsToScore()
     {
-        InitScoreUI(e.eEnnemiesDefeated);
+        m_Score++;
+        InitScoreUI(m_Score);
     }
 }

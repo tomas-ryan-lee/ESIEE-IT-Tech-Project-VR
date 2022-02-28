@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         return score >= VictoryScore;
     }
 
-    int m_Score;
+    public int m_Score;
 	[SerializeField] int m_VictoryScore;
 	float m_Countdown;
 	[SerializeField] float m_GameDuration;

@@ -172,16 +172,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51173cc2f4e1f41589eaaedbb320b44d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Bullet: {fileID: 8749795525700000251, guid: d457bd5a720e044798cde0a20f6f0625,
+  m_Bullet: {fileID: 8749795525700000251, guid: c45dde1cc4b884ef8874a92bdab4dc39,
     type: 3}
-  m_LifePoints: 3
+  m_LifePoints: 4
   SpeedWalk: 4
-  Player: {fileID: 0}
-  PlayerTransform: {fileID: 0}
   MoveSpeed: 0
   MinDist: 0
   MaxDist: 0
-  followActivated: 0
 --- !u!65 &1860306867574935808
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -193,7 +190,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 1, z: 20}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &2190579420346654292
 Rigidbody:

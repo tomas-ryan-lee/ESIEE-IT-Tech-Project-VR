@@ -52,11 +52,11 @@ public class QuitButtonClickedEvent : SDD.Events.Event
 #region Score Event
 public class ScoreItemEvent : SDD.Events.Event
 {
-	public float eEnnemiesDefeated;
+	public int eEnnemiesDefeated;
 }
 
 public class GameScorePlayerChangedEvent : SDD.Events.Event
 {
-	public float eEnnemiesDefeated { get; set; }
+	public int eEnnemiesDefeated { get; set; }
 }
 #endregion
