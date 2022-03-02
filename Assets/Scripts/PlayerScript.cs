@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public int m_Life = 3;
     public GameObject[] m_LifePoints;
-    public int m_Life;
 
     // Update is called once per frame
-    void Update()
-    {
-        if(m_Life < 1)
-            Debug.Log("GameOver");
+    private void Start() {
+        Debug.Log(m_LifePoints.Length);
     }
 
-    public void TakeDamage(int d)
-    {
-        m_Life -= d;
+    private void TakeDamage() {
+        m_Life--;
+        Destroy(m_LifePoints[m_Life].gameObject);
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        if(other.collider.tag == "EnemyBullet")
+            TakeDamage();
     }
 }
