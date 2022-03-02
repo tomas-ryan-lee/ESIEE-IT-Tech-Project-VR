@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("Life Setup")]
     [SerializeField] GameObject m_Bullet;
-    [SerializeField] float m_LifePoints = 4;
+    [SerializeField] float m_LifePoints = 3;
 
     [Header("Score Setup")]
     [SerializeField] public int SpeedWalk;
