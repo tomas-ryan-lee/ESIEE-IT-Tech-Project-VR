@@ -29,6 +29,10 @@ public class GameStatisticsChangedEvent : SDD.Events.Event
 	public int eEnnemiesDefeated { get; set; }
 	public int eNLives { get; set; }
 }
+
+public class AllEnemiesHaveBeenDestroyedEvent : SDD.Events.Event
+{
+}
 #endregion
 
 #region MenuManager Events

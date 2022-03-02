@@ -29,12 +29,16 @@ public class GameManager : MonoBehaviour
     {
         EventManager.Instance.AddListener<PlayButtonClickedEvent>(PlayButtonClicked);
         EventManager.Instance.AddListener<MainMenuButtonClickedEvent>(MainMenuButtonClicked);
+        EventManager.Instance.AddListener<ResumeButtonClickedEvent>(ResumeButtonClicked);
+        EventManager.Instance.AddListener<AllEnemiesHaveBeenDestroyedEvent>(AllEnemiesHaveBeenDestroyed);
     }
 
     public void UnsubscribeEvents()
     {
         EventManager.Instance.RemoveListener<PlayButtonClickedEvent>(PlayButtonClicked);
         EventManager.Instance.RemoveListener<MainMenuButtonClickedEvent>(MainMenuButtonClicked);
+        EventManager.Instance.RemoveListener<ResumeButtonClickedEvent>(ResumeButtonClicked);
+        EventManager.Instance.RemoveListener<AllEnemiesHaveBeenDestroyedEvent>(AllEnemiesHaveBeenDestroyed);
     }
 
 	private void OnEnable()
@@ -110,11 +114,21 @@ public class GameManager : MonoBehaviour
         SetAndBroadcastState(GameState.gameover);
     }
 
+    void Pause()
+    {
+		EventManager.Instance.Raise(new GamePauseEvent());
+    }
+
 
     // Events' callbacks
 	void PlayButtonClicked(PlayButtonClickedEvent e)
 	{
 		InitLevel();
+	}
+
+	public void ResumeButtonClicked(ResumeButtonClickedEvent e)
+	{
+		Pause();
 	}
 
 	public void QuitButtonClicked(QuitButtonClickedEvent e)
@@ -125,5 +139,9 @@ public class GameManager : MonoBehaviour
 	void MainMenuButtonClicked(MainMenuButtonClickedEvent e)
 	{
 		SetAndBroadcastState(GameState.menu);
+	}
+
+	public void AllEnemiesHaveBeenDestroyed(AllEnemiesHaveBeenDestroyedEvent e)
+	{
 	}
 }

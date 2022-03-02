@@ -22,7 +22,7 @@ public class HudManager : MonoBehaviour
         InitScoreUI(0);
     }
 
-    void InitEnnemiesLength(){
+    public void InitEnnemiesLength(){
         ennemiesLevel = GameObject.FindGameObjectsWithTag("Enemy");
         ennemiesLevelLength = ennemiesLevel.Length;
     }
