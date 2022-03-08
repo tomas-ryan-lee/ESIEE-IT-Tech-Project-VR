@@ -5,17 +5,12 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     [Header("Life Points Settings")]
-    public int m_Life = 3;
+    [SerializeField] public int m_Life = 3;
     public GameObject[] m_LifePoints;
 
     [Header("Invulnerability Settings")]
     private bool m_isInvincible = false;
-    [SerializeField]
-    public float m_InvincibilityDurationSeconds = 1.5f;
-
-    private void Start() {
-        Debug.Log(m_LifePoints.Length);
-    }
+    [SerializeField] public float m_InvincibilityDurationSeconds = 1.5f;
 
     #region Damages
     private void OnCollisionEnter(Collision other) 
