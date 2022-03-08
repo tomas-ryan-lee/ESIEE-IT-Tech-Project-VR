@@ -11,14 +11,15 @@ public enum GameState
 public class GameManager : MonoBehaviour
 {
     static GameManager m_Instance;
-    public static GameManager Instance { get {
-        return m_Instance; } }
+    public static GameManager Instance 
+	{ 
+		get 
+		{
+        	return m_Instance;
+		} 
+	}
     GameState m_State;
     public bool IsPlaying { get { return m_State == GameState.play; } }
-    public bool HasThePlayerWon(int score, int VictoryScore)
-    {
-        return score >= VictoryScore;
-    }
 
     public int m_Score;
 	[SerializeField] int m_VictoryScore;
@@ -30,7 +31,6 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.AddListener<PlayButtonClickedEvent>(PlayButtonClicked);
         EventManager.Instance.AddListener<MainMenuButtonClickedEvent>(MainMenuButtonClicked);
         EventManager.Instance.AddListener<ResumeButtonClickedEvent>(ResumeButtonClicked);
-        EventManager.Instance.AddListener<AllEnemiesHaveBeenDestroyedEvent>(AllEnemiesHaveBeenDestroyed);
     }
 
     public void UnsubscribeEvents()
@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.RemoveListener<PlayButtonClickedEvent>(PlayButtonClicked);
         EventManager.Instance.RemoveListener<MainMenuButtonClickedEvent>(MainMenuButtonClicked);
         EventManager.Instance.RemoveListener<ResumeButtonClickedEvent>(ResumeButtonClicked);
-        EventManager.Instance.RemoveListener<AllEnemiesHaveBeenDestroyedEvent>(AllEnemiesHaveBeenDestroyed);
     }
 
 	private void OnEnable()
@@ -67,7 +66,6 @@ public class GameManager : MonoBehaviour
 		}
 
 		if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
-			// Debug.Log("All Enemies destroyed");
 			SetAndBroadcastState(GameState.victory);
     }
 
@@ -143,9 +141,5 @@ public class GameManager : MonoBehaviour
 	void MainMenuButtonClicked(MainMenuButtonClickedEvent e)
 	{
 		SetAndBroadcastState(GameState.menu);
-	}
-
-	public void AllEnemiesHaveBeenDestroyed(AllEnemiesHaveBeenDestroyedEvent e)
-	{
 	}
 }
