@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    [Header("Life Points Settings")]
+    [Header("Life Points Setup")]
     [SerializeField] public int m_Life = 3;
     public GameObject[] m_LifePoints;
 
-    [Header("Invulnerability Settings")]
+    [Header("Invulnerability Setup")]
     private bool m_isInvincible = false;
     [SerializeField] public float m_InvincibilityDurationSeconds = 1.5f;
+
+    [Header("Damages Setup")]
+    [SerializeField] public GameObject BloodScreen;
 
     #region Damages
     private void OnCollisionEnter(Collision other) 
@@ -27,6 +30,15 @@ public class PlayerScript : MonoBehaviour
         Destroy(m_LifePoints[m_Life].gameObject);
 
         StartCoroutine(BecomeTemporarilyInvincible());
+        StartCoroutine(ShowBloodScreen());
+    }
+
+    void MethodThatTriggersInvulnerability()
+    {
+        if(!m_isInvincible)
+        {
+            StartCoroutine(BecomeTemporarilyInvincible());
+        }
     }
 
     private IEnumerator BecomeTemporarilyInvincible()
@@ -40,12 +52,15 @@ public class PlayerScript : MonoBehaviour
         Debug.Log("Player is no longer invincible!");
     }
 
-    void MethodThatTriggersInvulnerability()
+    private IEnumerator ShowBloodScreen()
     {
-        if(!m_isInvincible)
-        {
-            StartCoroutine(BecomeTemporarilyInvincible());
-        }
+        Debug.Log("Je saigne !");
+        BloodScreen.SetActive(true);
+
+        yield return new WaitForSeconds(m_InvincibilityDurationSeconds);
+        
+        BloodScreen.SetActive(false);
+        Debug.Log("Je saigne plus !");
     }
     #endregion
 }
