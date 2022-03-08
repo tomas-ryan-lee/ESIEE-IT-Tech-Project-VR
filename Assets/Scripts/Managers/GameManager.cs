@@ -65,6 +65,10 @@ public class GameManager : MonoBehaviour
 			if (m_Countdown == 0)
 			    GameOver();
 		}
+
+		if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
+			// Debug.Log("All Enemies destroyed");
+			SetAndBroadcastState(GameState.victory);
     }
 
 
