@@ -5043,7 +5043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1315448434
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8006,6 +8006,7 @@ MonoBehaviour:
   - {fileID: 1204283822}
   - {fileID: 1751813629}
   m_InvincibilityDurationSeconds: 1.5
+  BloodScreen: {fileID: 1315448433}
 --- !u!4 &2102404866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7967738928486034577, guid: 1401656295e0043eb905d8d1bc0145ed,
