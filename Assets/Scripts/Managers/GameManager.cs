@@ -126,6 +126,7 @@ public class GameManager : MonoBehaviour
 	void PlayButtonClicked(PlayButtonClickedEvent e)
 	{
 		InitLevel();
+		if (MusicLoopsManager.Instance) MusicLoopsManager.Instance.PlayMusic(Constants.GAMEPLAY_MUSIC);
 	}
 
 	public void ResumeButtonClicked(ResumeButtonClickedEvent e)

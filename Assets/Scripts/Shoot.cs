@@ -44,6 +44,7 @@ public class Shoot : MonoBehaviour
 
     void ShootBullet(){
         bool isFiring = Input.GetButton("Fire");
+		if(SfxManager.Instance) SfxManager.Instance.PlaySfx2D(Constants.FIRESOUND_SFX);
         if (isFiring && Time.time> m_NextShootTime)
         {
             Destroy(ShootProjectile(), m_ProjectileLifeDuration); // la destruction a lieu en fin de frame ... pas immédiatement !
