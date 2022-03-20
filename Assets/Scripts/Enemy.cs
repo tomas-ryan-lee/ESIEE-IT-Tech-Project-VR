@@ -9,10 +9,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject m_Bullet;
     [SerializeField] float m_LifePoints = 3;
 
-    [Header("Score Setup")]
-    [SerializeField] public int SpeedWalk;
+    [Header("Shoot Setup")]
+    [SerializeField] public bool ActivateShoot;
 
     [Header("Movements Setup")]
+    [SerializeField] public int SpeedWalk;
     [SerializeField] float MoveSpeed;
     [SerializeField] float MinDist;
     [SerializeField] float MaxDist;
@@ -33,7 +34,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnDestroy() {
+    /*private void OnDestroy() {
         HudManager.instance.AddPointsToScore();
-    }
+    }*/
 }
