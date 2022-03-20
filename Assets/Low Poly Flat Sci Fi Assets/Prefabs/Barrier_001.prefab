@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 33214332476345660}
   - component: {fileID: 23490867372565056}
   - component: {fileID: 64638105350355522}
+  - component: {fileID: 3771275341458952398}
   m_Layer: 0
   m_Name: Glass_Barrier_001
   m_TagString: Untagged
@@ -321,3 +322,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300056, guid: fe8bb5221257840c2805e380fc94544a, type: 3}
+--- !u!95 &3771275341458952398
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974773860923340}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6be4ad10e15e641fb9237a9f607c6414, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

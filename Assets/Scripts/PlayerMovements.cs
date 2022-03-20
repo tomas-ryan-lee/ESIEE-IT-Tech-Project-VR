@@ -12,10 +12,6 @@ public class PlayerMovements : MonoBehaviour
     Rigidbody rigidbodyInstance;
     public bool grounded = true;
 
-    [Header("Fight Setup")]
-    [SerializeField] Transform m_Shield;
-    public bool m_Protection = false;
-
 
 
     void Start()
@@ -35,7 +31,7 @@ public class PlayerMovements : MonoBehaviour
         // Fonction Saut
         Jump();
         // Fonction Protection
-        ProtectAgainEnemyAttacks();
+        // ProtectAgainEnemyAttacks();
     }
 
     void Jump(){
@@ -51,7 +47,7 @@ public class PlayerMovements : MonoBehaviour
         }
     }
 
-    void ProtectAgainEnemyAttacks(){
+    /*void ProtectAgainEnemyAttacks(){
         bool isHiding = Input.GetButton("Hide");
         if(isHiding)
         {
@@ -61,5 +57,5 @@ public class PlayerMovements : MonoBehaviour
         {
             m_Protection = false;
         } 
-    }
+    }*/
 }
