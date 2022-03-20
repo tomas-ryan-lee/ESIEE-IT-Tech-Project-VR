@@ -11,12 +11,21 @@ public class Enemy : MonoBehaviour
 
     [Header("Shoot Setup")]
     [SerializeField] public bool ActivateShoot;
+    [SerializeField] public Transform target;
 
     [Header("Movements Setup")]
     [SerializeField] public int SpeedWalk;
     [SerializeField] float MoveSpeed;
     [SerializeField] float MinDist;
     [SerializeField] float MaxDist;
+    
+
+	private void Update() {
+        if(target != null)
+        {
+            transform.LookAt(target);
+        }
+    }
     
 
 	/** FONCTIONS DE COLLISION ET DE DESTRUCTION
