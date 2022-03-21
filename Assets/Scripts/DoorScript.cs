@@ -9,7 +9,6 @@ public class DoorScript : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player")
         {
-            Debug.Log("Collision détectée");
             DoorToOpen.GetComponent<Animator>().enabled = true;
             Destroy(this);
         }

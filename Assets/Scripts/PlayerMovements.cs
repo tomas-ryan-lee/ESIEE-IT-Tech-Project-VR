@@ -9,10 +9,8 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] float m_RotationSpeed;
     [SerializeField] float m_jumpForce;
     public Vector3 m_jump;
+    public bool m_MovesetsBlocked = false;
     Rigidbody rigidbodyInstance;
-    public bool grounded = true;
-
-
 
     void Start()
     {
@@ -26,25 +24,12 @@ public class PlayerMovements : MonoBehaviour
         vInput = Input.GetAxis("Vertical");
         // Fonction Rotation
         transform.Rotate(Vector3.up * m_RotationSpeed * Time.fixedDeltaTime * hInput);
-        // Fonction Déplacements
-        transform.Translate(Vector3.forward * m_TranslationSpeed * Time.fixedDeltaTime * vInput);
-        // Fonction Saut
-        Jump();
-        // Fonction Protection
-        // ProtectAgainEnemyAttacks();
-    }
-
-    void Jump(){
-        // Détection du joueur au sol
-        if(!grounded && transform.position.z < 2) {
-            grounded = true;
-        }
-        // Commande Sauter
-        if (Input.GetButtonUp("Jump"))
+        if (!m_MovesetsBlocked)
         {
-            rigidbodyInstance.velocity = new Vector3(0f, m_jumpForce, 0f);
-            grounded = false;
+            // Fonction Déplacements
+            transform.Translate(Vector3.forward * m_TranslationSpeed * Time.fixedDeltaTime * vInput);
         }
+        
     }
 
     /*void ProtectAgainEnemyAttacks(){

@@ -65,6 +65,9 @@ public class GameManager : MonoBehaviour
 			    GameOver();
 		}
 
+		if(Input.GetKey("escape"))
+			Pause();
+
 		if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
 			SetAndBroadcastState(GameState.victory);
     }
