@@ -7,7 +7,6 @@ public class PlayerMovements : MonoBehaviour
     [Header("Movement Setup")]
     [SerializeField] float m_TranslationSpeed;
     [SerializeField] float m_RotationSpeed;
-    public bool m_MovesetsBlocked = false;
     Rigidbody rigidbodyInstance;
 
     void Start()
@@ -20,14 +19,10 @@ public class PlayerMovements : MonoBehaviour
         float hInput, vInput;
         hInput = Input.GetAxis("Horizontal");
         vInput = Input.GetAxis("Vertical");
+        // Fonction Déplacements
+        transform.Translate(Vector3.forward * m_TranslationSpeed * Time.fixedDeltaTime * vInput);
         // Fonction Rotation
         transform.Rotate(Vector3.up * m_RotationSpeed * Time.fixedDeltaTime * hInput);
-        if (!m_MovesetsBlocked)
-        {
-            // Fonction Déplacements
-            transform.Translate(Vector3.forward * m_TranslationSpeed * Time.fixedDeltaTime * vInput);
-        }
-        
     }
 
     /*void ProtectAgainEnemyAttacks(){

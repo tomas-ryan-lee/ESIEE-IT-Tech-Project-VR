@@ -21,7 +21,6 @@ public class ActivateEnemiesShoots : MonoBehaviour
             {
                 enemy.GetComponent<Enemy>().ActivateShoot = true;
             }
-            other.GetComponent<PlayerMovements>().m_MovesetsBlocked = true;
         }
         Destroy(gameObject);
     }
