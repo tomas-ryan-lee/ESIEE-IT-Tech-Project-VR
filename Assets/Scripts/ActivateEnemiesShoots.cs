@@ -25,18 +25,4 @@ public class ActivateEnemiesShoots : MonoBehaviour
         }
         Destroy(gameObject);
     }
-
-    public void AddPointsToEnnemiesDestroyed(){
-        EnnemiesDestroyed++;
-        EnablePlayerMovesets();
-    }
-
-    void EnablePlayerMovesets()
-    {
-        if (EnnemiesToDestroy == EnnemiesDestroyed)
-        {
-            GameObject.FindWithTag("Player").GetComponent<PlayerMovements>().m_MovesetsBlocked = false;
-            //Destroy(this);
-        }
-    }
 }

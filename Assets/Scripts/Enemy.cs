@@ -46,6 +46,5 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy() {
         HudManager.instance.AddPointsToScore();
-        ActivateEnemiesShoots.instance.AddPointsToEnnemiesDestroyed();
     }
 }
