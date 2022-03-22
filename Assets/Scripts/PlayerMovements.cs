@@ -7,8 +7,6 @@ public class PlayerMovements : MonoBehaviour
     [Header("Movement Setup")]
     [SerializeField] float m_TranslationSpeed;
     [SerializeField] float m_RotationSpeed;
-    [SerializeField] float m_jumpForce;
-    public Vector3 m_jump;
     public bool m_MovesetsBlocked = false;
     Rigidbody rigidbodyInstance;
 
