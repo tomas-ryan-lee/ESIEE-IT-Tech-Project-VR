@@ -23,6 +23,7 @@ public class ActivateEnemiesShoots : MonoBehaviour
             }
             other.GetComponent<PlayerMovements>().m_MovesetsBlocked = true;
         }
+        Destroy(gameObject);
     }
 
     public void AddPointsToEnnemiesDestroyed(){
