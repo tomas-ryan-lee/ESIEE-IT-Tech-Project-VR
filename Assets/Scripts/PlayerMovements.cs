@@ -15,21 +15,20 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] float m_TranslationSpeed;
     [SerializeField] float m_RotationSpeed;
     Rigidbody rigidbodyInstance;
+    public float sensitivity;
+
 
     void Start()
     {
         rigidbodyInstance = GetComponent<Rigidbody>();
     }
- 
-    void FixedUpdate()
+
+    void Update()
     {
         float hInput, vInput;
-        hInput = Input.GetAxis("Horizontal");
-        vInput = Input.GetAxis("Vertical");
-        // Fonction Déplacements
-        transform.Translate(Vector3.forward * m_TranslationSpeed * Time.fixedDeltaTime * vInput);
-        // Fonction Rotation
-        transform.Rotate(Vector3.up * m_RotationSpeed * Time.fixedDeltaTime * hInput);
+        hInput = Input.GetAxis("Mouse X");
+        vInput = Input.GetAxis("Mouse Y");
+        transform.Rotate(new Vector3(0, hInput * sensitivity, 0));
     }
 
     /*void ProtectAgainEnemyAttacks(){
@@ -37,10 +36,10 @@ public class PlayerMovements : MonoBehaviour
         if(isHiding)
         {
             m_Protection = true;
-        }    
+        }
         else
         {
             m_Protection = false;
-        } 
+        }
     }*/
 }

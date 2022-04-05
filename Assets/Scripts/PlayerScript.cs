@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    #region Variables
     [Header("Life Points Setup")]
     [SerializeField] public int m_Life = 3;
     public GameObject[] m_LifePoints;
@@ -14,6 +15,10 @@ public class PlayerScript : MonoBehaviour
 
     [Header("Damages Setup")]
     [SerializeField] public GameObject BloodScreen;
+
+    [Header("Teleport Setup")]
+    [SerializeField] GameObject m_TeleportPoint;
+    #endregion
 
     #region Damages
     private void OnCollisionEnter(Collision other) 
@@ -61,6 +66,13 @@ public class PlayerScript : MonoBehaviour
         
         BloodScreen.SetActive(false);
         Debug.Log("Je saigne plus !");
+    }
+    #endregion
+
+    #region Teleport
+    public void TeleportFunction()
+    {
+        transform.position = m_TeleportPoint.transform.position;
     }
     #endregion
 }

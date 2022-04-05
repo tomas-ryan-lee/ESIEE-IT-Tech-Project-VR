@@ -8,6 +8,8 @@ TagManager:
   - PointDirection
   - EnemyBody
   - EnemyBullet
+  - Encounter
+  - Exit
   layers:
   - Default
   - TransparentFX

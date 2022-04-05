@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
 	}
     GameState m_State;
     public bool IsPlaying { get { return m_State == GameState.play; } }
-
     public int m_Score;
+	public GameObject Player;
 	[SerializeField] int m_VictoryScore;
 	float m_Countdown;
 	[SerializeField] float m_GameDuration;
@@ -130,6 +130,8 @@ public class GameManager : MonoBehaviour
 	{
 		InitLevel();
 		if (MusicLoopsManager.Instance) MusicLoopsManager.Instance.PlayMusic(Constants.GAMEPLAY_MUSIC);
+		Player = GameObject.FindWithTag("Player");
+		Player.GetComponent<Mover>().isPaused = false;
 	}
 
 	public void ResumeButtonClicked(ResumeButtonClickedEvent e)
