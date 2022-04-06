@@ -8,11 +8,11 @@ using System.IO;
 
 public class TwitchConnect : MonoBehaviour
 {
-    private TcpClient twitchClient;
-    private StreamReader reader;
-    private StreamWriter writer;
+    private TcpClient m_twitchClient;
+    private StreamReader m_reader;
+    private StreamWriter m_writer;
 
-    public string username, password, channelName;
+    public string m_username, m_password, m_channelName;
 
     void Start()
     {
@@ -21,22 +21,33 @@ public class TwitchConnect : MonoBehaviour
 
     void Update()
     {
-        if (!twitchClient.Connected)
+        if (!m_twitchClient.Connected)
         {
             Connect();
         }
+
+        ReadChat();
     }
 
     private void Connect() 
     {
-        twitchClient = new TcpClient("irc.chat.twitch.tv", 6667);
-        reader = new StreamReader(twitchClient.GetStream());
-        writer = new StreamWriter(twitchClient.GetStream());
+        m_twitchClient = new TcpClient("irc.chat.twitch.tv", 6667);
+        m_reader = new StreamReader(m_twitchClient.GetStream());
+        m_writer = new StreamWriter(m_twitchClient.GetStream());
 
-        writer.WriteLine("PASS : " + password);
-        writer.WriteLine("NICK : " + username);
-        writer.WriteLine("USER : " + username + " 8 * :" + username);
-        writer.WriteLine("JOIN #" + channelName);
-        writer.Flush();
+        m_writer.WriteLine("PASS : " + m_password);
+        m_writer.WriteLine("NICK : " + m_username);
+        m_writer.WriteLine("USER : " + m_username + " 8 * :" + m_username);
+        m_writer.WriteLine("JOIN #" + m_channelName);
+        m_writer.Flush();
+    }
+
+    private void ReadChat()
+    {
+        if(m_twitchClient.Available > 0)
+        {
+            var m_message = m_reader.ReadLine();
+            print(m_message);
+        }
     }
 }
