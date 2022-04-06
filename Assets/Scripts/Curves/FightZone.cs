@@ -6,17 +6,18 @@ public class FightZone : MonoBehaviour
 {
     public GameObject Starter;
     public Transform nodeLocation;
-    private float ennemiesToDestroy;
     [SerializeField]
-    public float ennemiesDestroyed;
+    public string EnemyTagCibled;
 
     void Start ()
     {
-
+        /*var gos = GameObject[];
+        gos = GameObject.FindGameObjectsWithTag("EnemyZone1");*/
+        Debug.Log(GameObject.FindGameObjectsWithTag("EnemyZone1").Length);
     }
     void Update()
     {
-        if (ennemiesToDestroy == ennemiesDestroyed)
+        if (GameObject.FindGameObjectWithTag(EnemyTagCibled) == null)
         {
             Instantiate(Starter, nodeLocation.position, nodeLocation.rotation);
             Destroy(gameObject);
