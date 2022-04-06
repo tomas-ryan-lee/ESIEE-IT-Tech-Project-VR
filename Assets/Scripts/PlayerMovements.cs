@@ -5,26 +5,17 @@ using System.Linq;
 
 public class PlayerMovements : MonoBehaviour
 {
-    [Header("Bezier Curve Setup")]
-    [SerializeField] List<Transform> m_CtrlTransforms;
-    [SerializeField] int m_NbPtsOnSpline;
-    [SerializeField] bool m_IsClosed;
-    [SerializeField] float m_PtsDensity;
-
     [Header("Movement Setup")]
-    [SerializeField] float m_TranslationSpeed;
     [SerializeField] float m_RotationSpeed;
-    Rigidbody rigidbodyInstance;
-    public float sensitivity;
-
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
-        
+        PlayerRotation();
+    }
+
+    private void PlayerRotation()
+    {
+        float h = m_RotationSpeed * Input.GetAxis("Mouse X");
+        transform.Rotate(0, h, 0);
     }
 }
