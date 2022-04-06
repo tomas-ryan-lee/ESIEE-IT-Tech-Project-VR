@@ -20,26 +20,11 @@ public class PlayerMovements : MonoBehaviour
 
     void Start()
     {
-        rigidbodyInstance = GetComponent<Rigidbody>();
+        
     }
 
     void Update()
     {
-        float hInput, vInput;
-        hInput = Input.GetAxis("Mouse X");
-        vInput = Input.GetAxis("Mouse Y");
-        transform.Rotate(new Vector3(0, hInput * sensitivity, 0));
+        
     }
-
-    /*void ProtectAgainEnemyAttacks(){
-        bool isHiding = Input.GetButton("Hide");
-        if(isHiding)
-        {
-            m_Protection = true;
-        }
-        else
-        {
-            m_Protection = false;
-        }
-    }*/
 }
