@@ -56,5 +56,11 @@ public class Shoot : MonoBehaviour
 
     /** FONCTIONS DE BOUCLIER
     ---------------------------------------------**/
+
+
+
+    /** FONCTIONS DE CHANGEMENT D'ARME
+    ---------------------------------------------**/
+
     
 }
