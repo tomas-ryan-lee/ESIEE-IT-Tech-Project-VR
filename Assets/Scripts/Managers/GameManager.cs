@@ -130,6 +130,7 @@ public class GameManager : MonoBehaviour
 	{
 		InitLevel();
 		if (MusicLoopsManager.Instance) MusicLoopsManager.Instance.PlayMusic(Constants.GAMEPLAY_MUSIC);
+		Player.GetComponent<Mover>().enabled = true;
 	}
 
 	public void ResumeButtonClicked(ResumeButtonClickedEvent e)
