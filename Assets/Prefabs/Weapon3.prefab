@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1132440407975133915}
+  - component: {fileID: -5158540524884880776}
   m_Layer: 0
   m_Name: Weapon3
   m_TagString: Untagged
@@ -31,6 +32,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-5158540524884880776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2984957335363789812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7fb06c5b7f7467e88ea73620cf42d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpawnPosition: {fileID: 0}
+  m_CoolDownDuration: 0
+  m_Munitions: 10
+  m_ProjectilePrefab: {fileID: 0}
+  m_ProjectileInitSpeed: 0
+  m_ProjectileLifeDuration: 0
 --- !u!1001 &6646824367718253989
 PrefabInstance:
   m_ObjectHideFlags: 0
