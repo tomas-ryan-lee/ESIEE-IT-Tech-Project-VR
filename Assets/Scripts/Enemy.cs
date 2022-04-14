@@ -5,7 +5,6 @@ using SDD.Events;
 
 public class Enemy : MonoBehaviour
 {
-
     public ActivateEnemiesShoots activateEnemiesShoots;
     [Header("Life Setup")]
     [SerializeField] GameObject m_Bullet;
@@ -20,6 +19,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] float MoveSpeed;
     [SerializeField] float MinDist;
     [SerializeField] float MaxDist;
+
+    [Header("Gifts Setup")]
+    [SerializeField] bool newWeapon;
+    [SerializeField] int selectedWeapon;
 
 	private void Update() {
         if(target != null)
@@ -46,5 +49,10 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy() {
         HudManager.instance.AddPointsToScore();
+        if (newWeapon == true)
+        {
+            PlayerScript.instancePlayer.ChangeWeapon(selectedWeapon);
+        }
+        
     }
 }

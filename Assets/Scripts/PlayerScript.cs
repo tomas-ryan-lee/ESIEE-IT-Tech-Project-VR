@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     #region Variables
+    public static PlayerScript instancePlayer;
     [Header("Life Points Setup")]
     [SerializeField] public int m_Life = 3;
     public GameObject[] m_LifePoints;
@@ -20,6 +21,10 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] GameObject m_weaponPoint;
     [SerializeField] GameObject[] m_weaponsList;
     #endregion
+
+    private void Awake() {
+        instancePlayer = this;
+    }
 
     private void Start() {
         // m_weaponPoint.transform.parent = m_weaponsList[0];
@@ -76,6 +81,8 @@ public class PlayerScript : MonoBehaviour
     #endregion
 
     #region Weapons
-
+    public void ChangeWeapon(int selectedWeapon){
+        Instantiate(m_weaponsList[selectedWeapon], m_weaponPoint.transform);
+    }
     #endregion
 }
