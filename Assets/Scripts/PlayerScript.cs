@@ -16,9 +16,15 @@ public class PlayerScript : MonoBehaviour
     [Header("Damages Setup")]
     [SerializeField] public GameObject BloodScreen;
 
-    [Header("Teleport Setup")]
-    [SerializeField] GameObject m_TeleportPoint;
+    [Header("Weapons Setup")]
+    [SerializeField] GameObject m_weaponPoint;
+    [SerializeField] GameObject[] m_weaponsList;
     #endregion
+
+    private void Start() {
+        // m_weaponPoint.transform.parent = m_weaponsList[0];
+        Instantiate(m_weaponsList[0], m_weaponPoint.transform);
+    }
 
     #region Damages
     private void OnCollisionEnter(Collision other) 
@@ -69,10 +75,7 @@ public class PlayerScript : MonoBehaviour
     }
     #endregion
 
-    #region Teleport
-    public void TeleportFunction()
-    {
-        transform.position = m_TeleportPoint.transform.position;
-    }
+    #region Weapons
+
     #endregion
 }

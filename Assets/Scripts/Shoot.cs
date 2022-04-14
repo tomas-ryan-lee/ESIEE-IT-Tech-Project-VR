@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviour
     [Header("Shoot Setup")]
     [SerializeField] Transform m_SpawnPosition;
     [SerializeField] float m_CoolDownDuration;
+    [SerializeField] float m_Munitions;
     float m_NextShootTime;
 
     [Header("Projectile Setup")]
@@ -36,20 +37,25 @@ public class Shoot : MonoBehaviour
     ---------------------------------------------**/
     GameObject ShootProjectile()
 	{
-        GameObject newBallGO = Instantiate(m_ProjectilePrefab);
-        newBallGO.transform.position = m_SpawnPosition.position;
-        newBallGO.GetComponent<Rigidbody>().velocity = m_SpawnPosition.transform.forward * m_ProjectileInitSpeed;
-        return newBallGO;
+        if (m_Munitions > 1)
+        {
+            GameObject newBallGO = Instantiate(m_ProjectilePrefab);
+            newBallGO.transform.position = m_SpawnPosition.position;
+            newBallGO.GetComponent<Rigidbody>().velocity = m_SpawnPosition.transform.forward * m_ProjectileInitSpeed;
+            m_Munitions--;
+            return newBallGO;
+        }
+        
 	}
 
     void ShootBullet(){
         bool isFiring = Input.GetButton("Fire");
-		if(SfxManager.Instance) SfxManager.Instance.PlaySfx2D(Constants.FIRESOUND_SFX);
         if (isFiring && Time.time> m_NextShootTime)
         {
             Destroy(ShootProjectile(), m_ProjectileLifeDuration); // la destruction a lieu en fin de frame ... pas immédiatement !
             m_NextShootTime = Time.time + m_CoolDownDuration;
         }
+        
     }
 
 
