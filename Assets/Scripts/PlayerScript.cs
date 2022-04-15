@@ -20,8 +20,12 @@ public class PlayerScript : MonoBehaviour
     [Header("Weapons Setup")]
     [SerializeField] GameObject m_weaponPoint;
     [SerializeField] GameObject[] m_weaponsList;
+
+    [Header("Shield Setup")]
+    [SerializeField] GameObject m_shield;
     #endregion
 
+    #region Commons
     private void Awake() {
         instancePlayer = this;
     }
@@ -30,6 +34,7 @@ public class PlayerScript : MonoBehaviour
         // m_weaponPoint.transform.parent = m_weaponsList[0];
         Instantiate(m_weaponsList[0], m_weaponPoint.transform);
     }
+    #endregion
 
     #region Damages
     private void OnCollisionEnter(Collision other) 
@@ -83,6 +88,13 @@ public class PlayerScript : MonoBehaviour
     #region Weapons
     public void ChangeWeapon(int selectedWeapon){
         Instantiate(m_weaponsList[selectedWeapon], m_weaponPoint.transform);
+    }
+    #endregion
+
+    #region Shield
+    private void Shield()
+    {
+
     }
     #endregion
 }
