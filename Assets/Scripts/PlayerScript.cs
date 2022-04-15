@@ -109,6 +109,7 @@ public class PlayerScript : MonoBehaviour
     private void Shield(bool activateStat)
     {
         m_shield.SetActive(activateStat);
+        m_isInvincible == true;
     }
     #endregion
 }
