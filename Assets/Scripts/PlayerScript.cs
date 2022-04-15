@@ -31,8 +31,20 @@ public class PlayerScript : MonoBehaviour
     }
 
     private void Start() {
-        // m_weaponPoint.transform.parent = m_weaponsList[0];
+        // Mise en place de l'arme par défaut
         Instantiate(m_weaponsList[0], m_weaponPoint.transform);
+    }
+
+    private void Update() {
+        // Activation du Shield
+        if (Input.GetButtonDown("Hide"))
+        {
+            Shield(true);
+        }
+        if (Input.GetButtonUp("Hide"))
+        {
+            Shield(false);
+        }
     }
     #endregion
 
@@ -92,9 +104,9 @@ public class PlayerScript : MonoBehaviour
     #endregion
 
     #region Shield
-    private void Shield()
+    private void Shield(bool activateStat)
     {
-
+        m_shield.SetActive(activateStat);
     }
     #endregion
 }

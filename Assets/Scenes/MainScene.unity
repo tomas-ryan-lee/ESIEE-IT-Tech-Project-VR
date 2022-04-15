@@ -5720,6 +5720,7 @@ MonoBehaviour:
   - {fileID: 1016294593717774211, guid: 8bc23a7da2a594a2891dc58a217477d9, type: 3}
   - {fileID: 7709428413110625726, guid: 912847d3a53b648e9b82ae2fe0f59677, type: 3}
   - {fileID: 2984957335363789812, guid: e09fd9e070d8f496db6d1de6e8cddae2, type: 3}
+  m_shield: {fileID: 935384045}
 --- !u!65 &893851537
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5947,7 +5948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &935384046
 Transform:
   m_ObjectHideFlags: 0
