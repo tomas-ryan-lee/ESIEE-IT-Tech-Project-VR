@@ -33,6 +33,8 @@ public class PlayerScript : MonoBehaviour
     private void Start() {
         // Mise en place de l'arme par défaut
         Instantiate(m_weaponsList[0], m_weaponPoint.transform);
+        // Désactivation du bouclier par défaut
+        Shield(false);
     }
 
     private void Update() {
