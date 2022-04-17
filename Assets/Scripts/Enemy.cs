@@ -28,17 +28,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] Transform m_SpawnPosition;
     [SerializeField] float m_CoolDownDuration;
     [SerializeField] public float m_WaitBeforeShootSeconds;
-    private bool m_canFire = true;
+    bool m_canFire = true;
 
     [Header("Projectile Setup")]
     [SerializeField] GameObject m_ProjectilePrefab;
     [SerializeField] float m_ProjectileInitSpeed;
     [SerializeField] float m_ProjectileLifeDuration;
 
-    private void Start() {
-        while(m_canFire){
-            StartCoroutine(WaitBeforeShoot());
-        }
+    private void Awake() {
+        StartCoroutine(WaitBeforeShoot());
     }
 
 	private void Update() {
@@ -77,12 +75,14 @@ public class Enemy : MonoBehaviour
     ---------------------------------------------**/
     private IEnumerator WaitBeforeShoot()
     {
-        Debug.Log("Peut pas tirer");
-        m_ActivateShoot = false;
-        yield return new WaitForSeconds(m_WaitBeforeShootSeconds);
-        m_ActivateShoot = true;
-        Debug.Log("Peut tirer");
-
+        while(m_canFire){
+            Debug.Log("Peut pas tirer");
+            m_ActivateShoot = false;
+            yield return new WaitForSeconds(m_WaitBeforeShootSeconds);
+            m_ActivateShoot = true;
+            ShootBullet();
+            Debug.Log("Peut tirer");
+        }
     }
 
     GameObject ShootProjectile()
