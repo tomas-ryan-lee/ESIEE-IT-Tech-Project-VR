@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Munitions: 20
   m_ProjectilePrefab: {fileID: 8749795525700000251, guid: d457bd5a720e044798cde0a20f6f0625,
     type: 3}
-  m_ProjectileInitSpeed: 10
+  m_ProjectileInitSpeed: 100
   m_ProjectileLifeDuration: 10
 --- !u!1 &8388498693683659067
 GameObject:

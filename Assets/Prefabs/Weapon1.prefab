@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpawnPosition: {fileID: 0}
-  m_CoolDownDuration: 0
+  m_CoolDownDuration: 0.05
   m_Munitions: 200
-  m_ProjectilePrefab: {fileID: 0}
-  m_ProjectileInitSpeed: 0
-  m_ProjectileLifeDuration: 0
+  m_ProjectilePrefab: {fileID: 8749795525700000251, guid: d457bd5a720e044798cde0a20f6f0625,
+    type: 3}
+  m_ProjectileInitSpeed: 200
+  m_ProjectileLifeDuration: 10
 --- !u!1001 &1521604671023875889
 PrefabInstance:
   m_ObjectHideFlags: 0
