@@ -6,11 +6,11 @@ using SDD.Events;
 public class Shoot : MonoBehaviour
 {
     [Header("Shoot Setup")]
+    float m_NextShootTime;
+    public float m_Munitions;
     [SerializeField] Transform m_SpawnPosition;
     [SerializeField] float m_CoolDownDuration;
     [SerializeField] public float m_MunitionsCharger;
-    public float m_Munitions;
-    float m_NextShootTime;
 
     [Header("Projectile Setup")]
     [SerializeField] GameObject m_ProjectilePrefab;
