@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5545267942128875952}
   m_Layer: 0
   m_Name: Weapon0
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SpawnPosition: {fileID: 4440779213378907366}
   m_CoolDownDuration: 0.2
-  m_Munitions: 20
+  m_MunitionsCharger: 20
+  m_Munitions: 0
   m_ProjectilePrefab: {fileID: 8749795525700000251, guid: d457bd5a720e044798cde0a20f6f0625,
     type: 3}
   m_ProjectileInitSpeed: 100

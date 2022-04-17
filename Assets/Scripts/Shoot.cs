@@ -8,7 +8,8 @@ public class Shoot : MonoBehaviour
     [Header("Shoot Setup")]
     [SerializeField] Transform m_SpawnPosition;
     [SerializeField] float m_CoolDownDuration;
-    [SerializeField] float m_Munitions;
+    [SerializeField] public float m_MunitionsCharger;
+    public float m_Munitions;
     float m_NextShootTime;
 
     [Header("Projectile Setup")]
@@ -20,6 +21,8 @@ public class Shoot : MonoBehaviour
     void Start()
     {
         m_NextShootTime = Time.time;
+        m_Munitions = m_MunitionsCharger;
+        Debug.Log(m_Munitions);
     }
 
     // Update is called once per frame
@@ -38,7 +41,7 @@ public class Shoot : MonoBehaviour
             GameObject newBallGO = Instantiate(m_ProjectilePrefab);
             newBallGO.transform.position = m_SpawnPosition.position;
             newBallGO.GetComponent<Rigidbody>().velocity = m_SpawnPosition.transform.forward * m_ProjectileInitSpeed;
-            m_Munitions--;
+            m_MunitionsCharger--;
             return newBallGO;
         
 	}

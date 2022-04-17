@@ -20,6 +20,9 @@ public class PlayerScript : MonoBehaviour
     [Header("Weapons Setup")]
     [SerializeField] GameObject m_weaponPoint;
     [SerializeField] GameObject[] m_weaponsList;
+    GameObject m_weaponPrefab;
+    float m_MunitionsWeapon;
+    float m_MunitionsChargerWeapon;
 
     [Header("Shield Setup")]
     [SerializeField] GameObject m_shield;
@@ -46,6 +49,12 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetButtonUp("Hide"))
         {
             Shield(false);
+        }
+
+        // Rechargement de l'arme
+        if (Input.GetButtonUp("Submit"))
+        {
+            ReloadWeapon();
         }
     }
     #endregion
@@ -102,6 +111,15 @@ public class PlayerScript : MonoBehaviour
     #region Weapons
     public void ChangeWeapon(int selectedWeapon){
         Instantiate(m_weaponsList[selectedWeapon], m_weaponPoint.transform);
+    }
+
+    public void ReloadWeapon()
+    {
+        m_weaponPrefab = GameObject.FindWithTag("Weapon");
+        m_MunitionsWeapon = m_weaponPrefab.GetComponent<Shoot>().m_Munitions;
+        m_MunitionsChargerWeapon = m_weaponPrefab.GetComponent<Shoot>().m_Munitions;
+        m_MunitionsWeapon = m_MunitionsChargerWeapon;
+        Debug.Log("Rechargé");
     }
     #endregion
 
