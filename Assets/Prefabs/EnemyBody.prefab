@@ -120,7 +120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3288674009970467738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.527}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4384843603741474743}
@@ -138,7 +138,6 @@ GameObject:
   - component: {fileID: 8102444274048060941}
   - component: {fileID: 1860306867574935808}
   - component: {fileID: 2190579420346654292}
-  - component: {fileID: 1385299866900443291}
   m_Layer: 0
   m_Name: EnemyBody
   m_TagString: Enemy
@@ -174,16 +173,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51173cc2f4e1f41589eaaedbb320b44d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateEnemiesShoots: {fileID: 0}
   m_Bullet: {fileID: 8749795525700000251, guid: d457bd5a720e044798cde0a20f6f0625,
     type: 3}
   m_LifePoints: 4
-  ActivateShoot: 0
+  m_ActivateShoot: 0
   target: {fileID: 0}
   SpeedWalk: 4
   MoveSpeed: 0
   MinDist: 0
   MaxDist: 0
+  newWeapon: 0
+  selectedWeapon: 0
+  m_SpawnPosition: {fileID: 0}
+  m_CoolDownDuration: 0
+  m_WaitBeforeShootSeconds: 0
+  m_ProjectilePrefab: {fileID: 0}
+  m_ProjectileInitSpeed: 0
+  m_ProjectileLifeDuration: 0
 --- !u!65 &1860306867574935808
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -213,21 +219,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &1385299866900443291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6656560380535780893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8b618872ea2d4b32a4ebd2b6f902ced, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tags:
-  - Enemy
-  - EnemyZone1
 --- !u!1 &6657171300334122544
 GameObject:
   m_ObjectHideFlags: 0

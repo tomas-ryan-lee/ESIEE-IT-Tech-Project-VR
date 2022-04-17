@@ -228,6 +228,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyBody
       objectReference: {fileID: 0}
+    - target: {fileID: 8102444274048060941, guid: d2656b6d6a1c8419282658817035d58b,
+        type: 3}
+      propertyPath: m_Munitions
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102444274048060941, guid: d2656b6d6a1c8419282658817035d58b,
+        type: 3}
+      propertyPath: m_SpawnPosition
+      value: 
+      objectReference: {fileID: 5964307757839340896}
+    - target: {fileID: 8102444274048060941, guid: d2656b6d6a1c8419282658817035d58b,
+        type: 3}
+      propertyPath: m_CoolDownDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102444274048060941, guid: d2656b6d6a1c8419282658817035d58b,
+        type: 3}
+      propertyPath: m_MunitionsCharger
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102444274048060941, guid: d2656b6d6a1c8419282658817035d58b,
+        type: 3}
+      propertyPath: m_ProjectilePrefab
+      value: 
+      objectReference: {fileID: 8749795525700000251, guid: c45dde1cc4b884ef8874a92bdab4dc39,
+        type: 3}
+    - target: {fileID: 8102444274048060941, guid: d2656b6d6a1c8419282658817035d58b,
+        type: 3}
+      propertyPath: m_ProjectileInitSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102444274048060941, guid: d2656b6d6a1c8419282658817035d58b,
+        type: 3}
+      propertyPath: m_ProjectileLifeDuration
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2656b6d6a1c8419282658817035d58b, type: 3}
 --- !u!1 &7712191007510812551 stripped
@@ -239,6 +275,12 @@ GameObject:
 --- !u!4 &1256028891862740902 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2740899037081882172, guid: d2656b6d6a1c8419282658817035d58b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3992422075865424282}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5964307757839340896 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7323579735261066490, guid: d2656b6d6a1c8419282658817035d58b,
     type: 3}
   m_PrefabInstance: {fileID: 3992422075865424282}
   m_PrefabAsset: {fileID: 0}
